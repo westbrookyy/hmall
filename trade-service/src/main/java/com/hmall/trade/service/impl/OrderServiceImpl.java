@@ -5,18 +5,18 @@ import com.hmall.api.client.CartClient;
 import com.hmall.api.client.ItemClient;
 import com.hmall.api.client.TradeClient;
 import com.hmall.api.domain.dto.ItemDTO;
-import com.hmall.common.exception.BadRequestException;
-import com.hmall.common.utils.UserContext;
 import com.hmall.api.domain.dto.OrderDetailDTO;
 import com.hmall.api.domain.dto.OrderFormDTO;
+import com.hmall.common.exception.BadRequestException;
+import com.hmall.common.utils.UserContext;
 import com.hmall.trade.domain.po.Order;
 import com.hmall.trade.domain.po.OrderDetail;
 import com.hmall.trade.mapper.OrderMapper;
 import com.hmall.trade.service.IOrderDetailService;
 import com.hmall.trade.service.IOrderService;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -43,7 +43,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     private final CartClient cartClient;
 
     @Override
-    @Transactional
+    @GlobalTransactional
     public Long createOrder(OrderFormDTO orderFormDTO) {
         // 1.订单数据
         Order order = new Order();

@@ -68,6 +68,12 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
         </dependency>
+        <!--feign模块-->
+        <dependency>
+            <groupId>com.heima</groupId>
+            <artifactId>hm-api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         <!--feign整合OKHttp-->
         <dependency>
             <groupId>io.github.openfeign</groupId>
@@ -82,6 +88,16 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+        <!--seata-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
+        </dependency>
+        <!--sentinel-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
         </dependency>
     </dependencies>
     <build>

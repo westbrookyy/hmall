@@ -3,6 +3,8 @@ server:
 feign:
   okhttp:
     enabled: true # 开启OKHttp连接池支持
+  sentinel:
+    enabled: true # 开启Sentinel
 hm:
   swagger:
     title: 用户服务接口文档

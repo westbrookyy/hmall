@@ -73,8 +73,6 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements IC
             return CollUtils.emptyList();
         }
 
-        ThreadUtils.sleep(500);
-
         // 2.转换VO
         List<CartVO> vos = BeanUtils.copyList(carts, CartVO.class);
 
