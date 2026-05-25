@@ -1,0 +1,118 @@
+15:19:02:171  INFO 18452 --- [main] com.hmall.gateway.GatewayApplication     : No active profile set, falling back to 1 default profile: "default"
+15:19:02:688  INFO 18452 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ab7eba3b-bca4-35ba-8e37-4bef2229baa0
+15:19:02:725  INFO 18452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+15:19:02:726  INFO 18452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+15:19:02:727  INFO 18452 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+15:19:03:246  INFO 18452 --- [main] c.h.gateway.route.DynamicRouteLoader     : 更新路由配置：[
+    {
+        "id": "item",
+        "predicates": [{
+            "name": "Path",
+            "args": {"_genkey_0":"/items/**", "_genkey_1":"/search/**"}
+        }],
+        "filters": [],
+        "uri": "lb://item-service"
+    },
+    {
+        "id": "cart",
+        "predicates": [{
+            "name": "Path",
+            "args": {"_genkey_0":"/carts/**"}
+        }],
+        "filters": [],
+        "uri": "lb://cart-service"
+    },
+    {
+        "id": "user",
+        "predicates": [{
+            "name": "Path",
+            "args": {"_genkey_0":"/users/**", "_genkey_1":"/addresses/**"}
+        }],
+        "filters": [],
+        "uri": "lb://hm-user"
+    },
+    {
+        "id": "trade",
+        "predicates": [{
+            "name": "Path",
+            "args": {"_genkey_0":"/orders/**"}
+        }],
+        "filters": [],
+        "uri": "lb://trade-service"
+    },
+    {
+        "id": "pay",
+        "predicates": [{
+            "name": "Path",
+            "args": {"_genkey_0":"/pay-orders/**"}
+        }],
+        "filters": [],
+        "uri": "lb://hm-pay"
+    }
+]
+15:19:04:877  INFO 18452 --- [main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+15:19:04:877  INFO 18452 --- [main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+15:19:04:878  INFO 18452 --- [main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+15:19:04:878  INFO 18452 --- [main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+15:19:04:878  INFO 18452 --- [main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+15:19:04:878  INFO 18452 --- [main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+15:19:04:878  INFO 18452 --- [main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+15:19:04:878  INFO 18452 --- [main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+15:19:04:878  INFO 18452 --- [main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+15:19:04:878  INFO 18452 --- [main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+15:19:04:878  INFO 18452 --- [main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+15:19:04:879  INFO 18452 --- [main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+15:19:04:879  INFO 18452 --- [main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+15:19:04:879  INFO 18452 --- [main] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+15:19:05:826  INFO 18452 --- [main] com.alibaba.nacos.common.remote.client   : [RpcClientFactory] create a new rpc client of 24cdaec3-968f-4b83-b5c6-0582f8df1cae
+15:19:05:826  INFO 18452 --- [main] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] RpcClient init label, labels = {module=naming, source=sdk}
+15:19:05:828  INFO 18452 --- [main] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+15:19:05:829  INFO 18452 --- [main] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+15:19:05:829  INFO 18452 --- [main] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+15:19:05:829  INFO 18452 --- [main] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Try to connect to server on start up, server: {serverIp = '172.25.138.243', server main port = 8848}
+15:19:05:955  INFO 18452 --- [main] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Success to connect to server [172.25.138.243:8848] on start up, connectionId = 1779693546389_172.17.0.1_36278
+15:19:05:955  INFO 18452 --- [main] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+15:19:05:955  INFO 18452 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Notify connected event to listeners.
+15:19:05:956  INFO 18452 --- [main] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$462/0x0000000800435840
+15:19:06:456  INFO 18452 --- [nacos-grpc-client-executor-5] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Receive server push request, request = NotifySubscriberRequest, requestId = 119
+15:19:06:459  INFO 18452 --- [nacos-grpc-client-executor-5] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Ack server push request, request = NotifySubscriberRequest, requestId = 119
+15:19:06:598  INFO 18452 --- [main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080
+15:19:10:166  INFO 18452 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP hm-gateway 192.168.219.1:8080 register finished
+15:19:10:207  INFO 18452 --- [main] com.hmall.gateway.GatewayApplication     : Started GatewayApplication in 11.689 seconds (JVM running for 12.508)
+15:19:10:215  INFO 18452 --- [main] c.a.c.n.refresh.NacosContextRefresher    : [Nacos Config] Listening config: dataId=hm-gateway, group=DEFAULT_GROUP
+15:19:10:218  INFO 18452 --- [main] c.a.c.n.refresh.NacosContextRefresher    : [Nacos Config] Listening config: dataId=hm-gateway.yaml, group=DEFAULT_GROUP
+15:19:10:709  INFO 18452 --- [nacos-grpc-client-executor-9] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Receive server push request, request = NotifySubscriberRequest, requestId = 120
+15:19:10:721  INFO 18452 --- [nacos-grpc-client-executor-9] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Ack server push request, request = NotifySubscriberRequest, requestId = 120
+15:20:07:289  INFO 18452 --- [nacos-grpc-client-executor-24] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Receive server push request, request = NotifySubscriberRequest, requestId = 126
+15:20:07:290  INFO 18452 --- [nacos-grpc-client-executor-24] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Ack server push request, request = NotifySubscriberRequest, requestId = 126
+15:20:08:345  INFO 18452 --- [nacos-grpc-client-executor-28] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Receive server push request, request = NotifySubscriberRequest, requestId = 127
+15:20:08:348  INFO 18452 --- [nacos-grpc-client-executor-28] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Ack server push request, request = NotifySubscriberRequest, requestId = 127
+15:20:11:935  INFO 18452 --- [nacos-grpc-client-executor-31] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Receive server push request, request = NotifySubscriberRequest, requestId = 128
+15:20:11:936  INFO 18452 --- [nacos-grpc-client-executor-31] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Ack server push request, request = NotifySubscriberRequest, requestId = 128
+15:33:04:085  INFO 18452 --- [nacos-grpc-client-executor-224] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Receive server push request, request = NotifySubscriberRequest, requestId = 130
+15:33:04:104  INFO 18452 --- [nacos-grpc-client-executor-224] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Ack server push request, request = NotifySubscriberRequest, requestId = 130
+15:33:17:425  INFO 18452 --- [nacos-grpc-client-executor-230] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Receive server push request, request = NotifySubscriberRequest, requestId = 131
+15:33:17:427  INFO 18452 --- [nacos-grpc-client-executor-230] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Ack server push request, request = NotifySubscriberRequest, requestId = 131
+16:11:26:302  INFO 18452 --- [nacos-grpc-client-executor-738] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Receive server push request, request = NotifySubscriberRequest, requestId = 133
+16:11:26:318  INFO 18452 --- [nacos-grpc-client-executor-738] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Ack server push request, request = NotifySubscriberRequest, requestId = 133
+16:11:37:872  INFO 18452 --- [nacos-grpc-client-executor-740] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Receive server push request, request = NotifySubscriberRequest, requestId = 134
+16:11:37:875  INFO 18452 --- [nacos-grpc-client-executor-740] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Ack server push request, request = NotifySubscriberRequest, requestId = 134
+16:11:40:689  INFO 18452 --- [nacos-grpc-client-executor-741] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Receive server push request, request = NotifySubscriberRequest, requestId = 136
+16:11:40:691  INFO 18452 --- [nacos-grpc-client-executor-741] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Ack server push request, request = NotifySubscriberRequest, requestId = 136
+16:11:50:289  INFO 18452 --- [nacos-grpc-client-executor-744] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Receive server push request, request = NotifySubscriberRequest, requestId = 137
+16:11:50:291  INFO 18452 --- [nacos-grpc-client-executor-744] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Ack server push request, request = NotifySubscriberRequest, requestId = 137
+16:11:52:208  INFO 18452 --- [nacos-grpc-client-executor-745] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Receive server push request, request = NotifySubscriberRequest, requestId = 140
+16:11:52:211  INFO 18452 --- [nacos-grpc-client-executor-745] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Ack server push request, request = NotifySubscriberRequest, requestId = 140
+16:37:10:832  INFO 18452 --- [nacos-grpc-client-executor-1085] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Receive server push request, request = NotifySubscriberRequest, requestId = 143
+16:37:10:858  INFO 18452 --- [nacos-grpc-client-executor-1085] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Ack server push request, request = NotifySubscriberRequest, requestId = 143
+16:37:31:614  WARN 18452 --- [boundedElastic-6] o.s.c.l.core.RoundRobinLoadBalancer      : No servers available for service: cart-service
+16:37:36:288  INFO 18452 --- [nacos-grpc-client-executor-1091] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Receive server push request, request = NotifySubscriberRequest, requestId = 145
+16:37:36:292  INFO 18452 --- [nacos-grpc-client-executor-1091] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Ack server push request, request = NotifySubscriberRequest, requestId = 145
+17:22:56:574  INFO 18452 --- [nacos-grpc-client-executor-1701] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Receive server push request, request = NotifySubscriberRequest, requestId = 147
+17:22:56:586  INFO 18452 --- [nacos-grpc-client-executor-1701] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Ack server push request, request = NotifySubscriberRequest, requestId = 147
+17:23:09:141  INFO 18452 --- [nacos-grpc-client-executor-1703] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Receive server push request, request = NotifySubscriberRequest, requestId = 148
+17:23:09:145  INFO 18452 --- [nacos-grpc-client-executor-1703] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Ack server push request, request = NotifySubscriberRequest, requestId = 148
+17:23:40:616  INFO 18452 --- [nacos-grpc-client-executor-1712] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Receive server push request, request = NotifySubscriberRequest, requestId = 151
+17:23:40:618  INFO 18452 --- [nacos-grpc-client-executor-1712] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Ack server push request, request = NotifySubscriberRequest, requestId = 151
+17:23:52:119  INFO 18452 --- [nacos-grpc-client-executor-1715] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Receive server push request, request = NotifySubscriberRequest, requestId = 152
+17:23:52:125  INFO 18452 --- [nacos-grpc-client-executor-1715] com.alibaba.nacos.common.remote.client   : [24cdaec3-968f-4b83-b5c6-0582f8df1cae] Ack server push request, request = NotifySubscriberRequest, requestId = 152

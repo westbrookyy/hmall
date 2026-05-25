@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cart-service" />
+        <module name="hm-gateway" />
+        <module name="trade-service" />
+        <module name="hm-common" />
+        <module name="item-service" />
+        <module name="hm-user" />
+        <module name="hm-service" />
+        <module name="hm-pay" />
+        <module name="hm-api" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="11">
+      <module name="cart-service" target="11" />
+      <module name="hm-api" target="11" />
+      <module name="hm-common" target="11" />
+      <module name="hm-gateway" target="11" />
+      <module name="hm-pay" target="11" />
+      <module name="hm-service" target="11" />
+      <module name="hm-user" target="11" />
+      <module name="hmall" target="11" />
+      <module name="item-service" target="11" />
+      <module name="trade-service" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cart-service" options="-parameters" />
+      <module name="hm-api" options="-parameters" />
+      <module name="hm-common" options="-parameters" />
+      <module name="hm-gateway" options="-parameters" />
+      <module name="hm-pay" options="-parameters" />
+      <module name="hm-service" options="-parameters" />
+      <module name="hm-user" options="-parameters" />
+      <module name="item-service" options="-parameters" />
+      <module name="trade-service" options="-parameters" />
+    </option>
+  </component>
+</project>

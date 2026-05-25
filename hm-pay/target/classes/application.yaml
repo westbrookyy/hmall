@@ -1,0 +1,23 @@
+server:
+  port: 8086
+feign:
+  okhttp:
+    enabled: true # 开启OKHttp连接池支持
+hm:
+  swagger:
+    title: 支付服务接口文档
+    package: com.hmall.pay.controller
+  db:
+    database: hm-pay
+  jwt:
+    location: classpath:hmall.jks
+    alias: hmall
+    password: hmall123
+    tokenTTL: 30m
+  auth:
+    excludePaths:
+      - /search/**
+      - /users/login
+      - /items/**
+      - /hi
+# keytool -genkeypair -alias hmall -keyalg RSA -keypass hmall123 -keystore hmall.jks -storepass hmall123

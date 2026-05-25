@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: hm-gateway
+  cloud:
+    nacos:
+      server-addr: 172.25.138.243:8848
+      config:
+        file-extension: yaml
+        shared-configs:
+          - dataId: shared-log.yaml # 共享日志配置

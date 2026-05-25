@@ -1,0 +1,55 @@
+15:19:18:448  INFO 6212 --- [main] com.hmall.user.UserApplication           : The following 1 profile is active: "local"
+15:19:21:012  INFO 6212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+15:19:21:023  INFO 6212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+15:19:21:115  INFO 6212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 0 Redis repository interfaces.
+15:19:21:778  INFO 6212 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=c9a1567d-df67-36b6-9cb5-1f03fa2108c8
+15:19:22:944  INFO 6212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8087 (http)
+15:19:22:970  INFO 6212 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+15:19:22:971  INFO 6212 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+15:19:23:558  INFO 6212 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+15:19:23:560  INFO 6212 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5033 ms
+15:19:31:841  INFO 6212 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+15:19:34:600  INFO 6212 --- [main] com.alibaba.nacos.common.remote.client   : [RpcClientFactory] create a new rpc client of 8e4da2d2-a3aa-4721-9e57-18003552101e
+15:19:34:601  INFO 6212 --- [main] com.alibaba.nacos.common.remote.client   : [8e4da2d2-a3aa-4721-9e57-18003552101e] RpcClient init label, labels = {module=naming, source=sdk}
+15:19:34:607  INFO 6212 --- [main] com.alibaba.nacos.common.remote.client   : [8e4da2d2-a3aa-4721-9e57-18003552101e] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+15:19:34:607  INFO 6212 --- [main] com.alibaba.nacos.common.remote.client   : [8e4da2d2-a3aa-4721-9e57-18003552101e] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+15:19:34:608  INFO 6212 --- [main] com.alibaba.nacos.common.remote.client   : [8e4da2d2-a3aa-4721-9e57-18003552101e] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+15:19:34:609  INFO 6212 --- [main] com.alibaba.nacos.common.remote.client   : [8e4da2d2-a3aa-4721-9e57-18003552101e] Try to connect to server on start up, server: {serverIp = '172.25.138.243', server main port = 8848}
+15:19:34:756  INFO 6212 --- [main] com.alibaba.nacos.common.remote.client   : [8e4da2d2-a3aa-4721-9e57-18003552101e] Success to connect to server [172.25.138.243:8848] on start up, connectionId = 1779693575180_172.17.0.1_38474
+15:19:34:756  INFO 6212 --- [main] com.alibaba.nacos.common.remote.client   : [8e4da2d2-a3aa-4721-9e57-18003552101e] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+15:19:34:756  INFO 6212 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [8e4da2d2-a3aa-4721-9e57-18003552101e] Notify connected event to listeners.
+15:19:34:756  INFO 6212 --- [main] com.alibaba.nacos.common.remote.client   : [8e4da2d2-a3aa-4721-9e57-18003552101e] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$473/0x000000080051f840
+15:19:34:903  INFO 6212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8087 (http) with context path ''
+15:19:34:926  INFO 6212 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP hm-user 192.168.219.1:8087 register finished
+15:19:35:304  INFO 6212 --- [nacos-grpc-client-executor-5] com.alibaba.nacos.common.remote.client   : [8e4da2d2-a3aa-4721-9e57-18003552101e] Receive server push request, request = NotifySubscriberRequest, requestId = 125
+15:19:35:315  INFO 6212 --- [nacos-grpc-client-executor-5] com.alibaba.nacos.common.remote.client   : [8e4da2d2-a3aa-4721-9e57-18003552101e] Ack server push request, request = NotifySubscriberRequest, requestId = 125
+15:19:36:441  INFO 6212 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+15:19:36:448  INFO 6212 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+15:19:36:505  INFO 6212 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+15:19:36:951  INFO 6212 --- [main] com.hmall.user.UserApplication           : Started UserApplication in 27.144 seconds (JVM running for 28.116)
+15:19:36:971  INFO 6212 --- [main] c.a.c.n.refresh.NacosContextRefresher    : [Nacos Config] Listening config: dataId=hm-user-local.yaml, group=DEFAULT_GROUP
+15:19:36:976  INFO 6212 --- [main] c.a.c.n.refresh.NacosContextRefresher    : [Nacos Config] Listening config: dataId=hm-user, group=DEFAULT_GROUP
+15:19:36:979  INFO 6212 --- [main] c.a.c.n.refresh.NacosContextRefresher    : [Nacos Config] Listening config: dataId=hm-user.yaml, group=DEFAULT_GROUP
+15:20:06:991  INFO 6212 --- [http-nio-8087-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:20:06:991  INFO 6212 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+15:20:06:992  INFO 6212 --- [http-nio-8087-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+15:20:07:120  INFO 6212 --- [http-nio-8087-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+15:20:07:383  INFO 6212 --- [http-nio-8087-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+15:20:07:392 DEBUG 6212 --- [http-nio-8087-exec-1] c.h.user.mapper.UserMapper.selectOne     : ==>  Preparing: SELECT id,username,password,phone,create_time,update_time,status,balance FROM user WHERE (username = ?)
+15:20:07:415 DEBUG 6212 --- [http-nio-8087-exec-1] c.h.user.mapper.UserMapper.selectOne     : ==> Parameters: rose(String)
+15:20:07:446 DEBUG 6212 --- [http-nio-8087-exec-1] c.h.user.mapper.UserMapper.selectOne     : <==      Total: 1
+16:12:32:612 DEBUG 6212 --- [http-nio-8087-exec-3] c.h.user.mapper.UserMapper.selectOne     : ==>  Preparing: SELECT id,username,password,phone,create_time,update_time,status,balance FROM user WHERE (username = ?)
+16:12:32:621 DEBUG 6212 --- [http-nio-8087-exec-3] c.h.user.mapper.UserMapper.selectOne     : ==> Parameters: rose(String)
+16:12:32:639 DEBUG 6212 --- [http-nio-8087-exec-3] c.h.user.mapper.UserMapper.selectOne     : <==      Total: 1
+16:37:42:971 DEBUG 6212 --- [http-nio-8087-exec-6] c.h.user.mapper.UserMapper.selectOne     : ==>  Preparing: SELECT id,username,password,phone,create_time,update_time,status,balance FROM user WHERE (username = ?)
+16:37:42:976 DEBUG 6212 --- [http-nio-8087-exec-6] c.h.user.mapper.UserMapper.selectOne     : ==> Parameters: rose(String)
+16:37:42:998 DEBUG 6212 --- [http-nio-8087-exec-6] c.h.user.mapper.UserMapper.selectOne     : <==      Total: 1
+17:21:26:901 DEBUG 6212 --- [http-nio-8087-exec-8] c.h.user.mapper.UserMapper.selectOne     : ==>  Preparing: SELECT id,username,password,phone,create_time,update_time,status,balance FROM user WHERE (username = ?)
+17:21:26:906 DEBUG 6212 --- [http-nio-8087-exec-8] c.h.user.mapper.UserMapper.selectOne     : ==> Parameters: rose(String)
+17:21:26:919 DEBUG 6212 --- [http-nio-8087-exec-8] c.h.user.mapper.UserMapper.selectOne     : <==      Total: 1
+17:24:00:204 DEBUG 6212 --- [http-nio-8087-exec-9] c.h.user.mapper.UserMapper.selectOne     : ==>  Preparing: SELECT id,username,password,phone,create_time,update_time,status,balance FROM user WHERE (username = ?)
+17:24:00:205 DEBUG 6212 --- [http-nio-8087-exec-9] c.h.user.mapper.UserMapper.selectOne     : ==> Parameters: rose(String)
+17:24:00:209 DEBUG 6212 --- [http-nio-8087-exec-9] c.h.user.mapper.UserMapper.selectOne     : <==      Total: 1
+18:00:09:386 DEBUG 6212 --- [http-nio-8087-exec-1] c.h.user.mapper.UserMapper.selectOne     : ==>  Preparing: SELECT id,username,password,phone,create_time,update_time,status,balance FROM user WHERE (username = ?)
+18:00:09:399 DEBUG 6212 --- [http-nio-8087-exec-1] c.h.user.mapper.UserMapper.selectOne     : ==> Parameters: rose(String)
+18:00:09:433 DEBUG 6212 --- [http-nio-8087-exec-1] c.h.user.mapper.UserMapper.selectOne     : <==      Total: 1
