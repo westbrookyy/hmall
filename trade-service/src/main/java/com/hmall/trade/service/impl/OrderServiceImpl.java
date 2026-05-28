@@ -8,22 +8,24 @@ import com.hmall.api.domain.dto.ItemDTO;
 import com.hmall.api.domain.dto.OrderDetailDTO;
 import com.hmall.api.domain.dto.OrderFormDTO;
 import com.hmall.common.exception.BadRequestException;
+import com.hmall.common.utils.BeanUtils;
 import com.hmall.common.utils.UserContext;
+import com.hmall.trade.constants.MqConstants;
 import com.hmall.trade.domain.po.Order;
 import com.hmall.trade.domain.po.OrderDetail;
 import com.hmall.trade.mapper.OrderMapper;
 import com.hmall.trade.service.IOrderDetailService;
 import com.hmall.trade.service.IOrderService;
-import io.seata.spring.annotation.GlobalTransactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.amqp.AmqpException;
+import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.MessagePostProcessor;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -42,9 +44,10 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     private final IOrderDetailService detailService;
     private final TradeClient tradeClient;
     private final CartClient cartClient;
+    private final RabbitTemplate rabbitTemplate;
 
     @Override
-    @GlobalTransactional
+    @Transactional
     public Long createOrder(OrderFormDTO orderFormDTO) {
         // 1.订单数据
         Order order = new Order();
@@ -76,8 +79,15 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         List<OrderDetail> details = buildDetails(order.getId(), items, itemNumMap);
         detailService.saveBatch(details);
 
-        // 3.清理购物车商品
-        cartClient.deleteCartItemByIds(itemIds);
+        // 3.清理购物车商品(异步调用),同时由于没有使用feign，所以需要添加消息头传递用户id
+//        cartClient.deleteCartItemByIds(itemIds);
+        rabbitTemplate.convertAndSend("trade.topic", "order.create", itemIds, new MessagePostProcessor() {
+            @Override
+            public Message postProcessMessage(Message message) throws AmqpException {
+                message.getMessageProperties().setHeader("userId", UserContext.getUser());
+                return message;
+            }
+        });
 
         // 4.扣减库存
         try {
@@ -85,6 +95,17 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         } catch (Exception e) {
             throw new RuntimeException("库存不足！");
         }
+
+        //发送延迟消息,检查订单状态
+        rabbitTemplate.convertAndSend(
+                MqConstants.DELAY_EXCHANGE_NAME,
+                MqConstants.DELAY_ORDER_KEY,
+                order.getId(),
+                message -> {
+                    message.getMessageProperties().setDelay(10000);
+                    return message;
+        });
+
         return order.getId();
     }
 
@@ -97,6 +118,37 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         order.setPayTime(LocalDateTime.now());
         updateById(order);
     }
+
+    /**
+     * 取消订单
+     *
+     * @param orderId
+     */
+    @Override
+    @Transactional
+    public void cancelOrder(Long orderId) {
+        //- 将订单状态修改为已关闭，并且订单关闭时间设置为当前时间，订单更新时间设置为当前时间
+        Order order = new Order();
+        order.setId(orderId);
+        order.setStatus(5);
+        order.setCloseTime(LocalDateTime.now());
+        order.setUpdateTime(LocalDateTime.now());
+        updateById(order);
+        // 按照订单号查询已经扣除的库存
+        List<OrderDetail> orderDetails = detailService.lambdaQuery()
+                .eq(OrderDetail::getOrderId, orderId)
+                .list();
+        // 构建OrderDetailDTO
+        List<OrderDetailDTO> orderDetailDTOS = BeanUtils.copyList(orderDetails, OrderDetailDTO.class);
+        //- 恢复订单中已经扣除的库存
+        try {
+            itemClient.restoreStock(orderDetailDTOS);
+        } catch (Exception e) {
+            throw new RuntimeException("库存恢复失败！", e);
+        }
+
+    }
+
 
     private List<OrderDetail> buildDetails(Long orderId, List<ItemDTO> items, Map<Long, Integer> numMap) {
         List<OrderDetail> details = new ArrayList<>(items.size());
